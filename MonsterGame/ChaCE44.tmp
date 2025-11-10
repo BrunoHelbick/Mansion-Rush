@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddpq5a88g75d4"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_rw17f"]
+[ext_resource type="Texture2D" uid="uid://coxpc4d2hm3v4" path="res://floorf.png" id="2_inqqe"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="3_8r0bp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvaoc"]
+
+[node name="Character" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(0.12, 0.12)
+script = ExtResource("1_rw17f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+scale = Vector2(7.31923, 7.31923)
+shape = SubResource("CapsuleShape2D_gvaoc")
+
+[node name="Floorf" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-2, 8)
+scale = Vector2(7.33331, 7.33331)
+texture = ExtResource("2_inqqe")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+scale = Vector2(-1.28622, -1.28622)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+script = ExtResource("3_8r0bp")

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6any21xiggij"]
+
+[ext_resource type="Script" path="res://Whiskers.gd" id="1_6ykv0"]
+[ext_resource type="Texture2D" uid="uid://q0fvndmqid71" path="res://Whiskers.png" id="1_hhond"]
+[ext_resource type="Texture2D" uid="uid://ckhd4yqi6l1s" path="res://Whiskersjumpscare.png" id="3_ejw4g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kay50"]
+
+[node name="Whiskers" type="Node2D"]
+script = ExtResource("1_6ykv0")
+
+[node name="Whiskers" type="Sprite2D" parent="."]
+position = Vector2(112, 90)
+texture = ExtResource("1_hhond")
+
+[node name="Area2D" type="Area2D" parent="Whiskers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whiskers/Area2D"]
+position = Vector2(-3, 15)
+scale = Vector2(6.4, 6.4)
+shape = SubResource("CircleShape2D_kay50")
+
+[node name="Whiskersjumpscare" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(542, 373)
+scale = Vector2(19.197, 14.3805)
+texture = ExtResource("3_ejw4g")
+
+[node name="Whiskersjumpscare2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(699, 539)
+scale = Vector2(8.99808, 6.74048)
+texture = ExtResource("3_ejw4g")
+
+[node name="Whiskersjumpscare3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(206, 561)
+scale = Vector2(8.99808, 6.74048)
+texture = ExtResource("3_ejw4g")
+
+[connection signal="body_entered" from="Whiskers/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://dlh8f8ttb8o63"]
+
+[ext_resource type="Script" path="res://scenes/longman.gd" id="1_ah4d6"]
+[ext_resource type="Texture2D" uid="uid://cj7ofdgg000nt" path="res://Images/longman6.png" id="1_r8cg4"]
+[ext_resource type="Texture2D" uid="uid://c7f10w1a8q4um" path="res://Images/longman4.png" id="2_7t8nx"]
+[ext_resource type="Texture2D" uid="uid://dbma6bewx6thj" path="res://Images/longman.png" id="3_b5wjd"]
+[ext_resource type="Texture2D" uid="uid://88ptw175o0pn" path="res://Images/longman2.png" id="4_kkp51"]
+[ext_resource type="Texture2D" uid="uid://b36hqaklpeu15" path="res://Images/longman7.png" id="5_vrr6o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtdp0"]
+atlas = ExtResource("4_kkp51")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hnj6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r8cg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7t8nx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b5wjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtdp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vrr6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7t8nx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b5wjd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5hci"]
+radius = 12.0
+height = 66.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxok3"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ah4d6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2hnj6")
+frame_progress = 0.15151
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(5, 1)
+shape = SubResource("CapsuleShape2D_n5hci")
+
+[node name="Area2D2" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D2"]
+scale = Vector2(16.76, 16.76)
+shape = SubResource("CircleShape2D_yxok3")
+
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D2" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D2" to="." method="_on_area_2d_2_body_entered"]

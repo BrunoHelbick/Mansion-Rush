@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp8o1y6muu3sw"]
+
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="1_7sqr0"]
+[ext_resource type="FontFile" uid="uid://cxw2j57e7vpgl" path="res://Images/Minecraft.ttf" id="2_rsb76"]
+
+[node name="Hud" type="Node2D"]
+script = ExtResource("1_7sqr0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="Label" type="Label" parent="Control/CanvasLayer"]
+offset_left = 853.0
+offset_top = 34.0
+offset_right = 1313.0
+offset_bottom = 89.0
+scale = Vector2(0.52, 0.52)
+theme_override_colors/font_color = Color(0.468327, 1.10099e-06, 1.68458e-07, 1)
+theme_override_fonts/font = ExtResource("2_rsb76")
+theme_override_font_sizes/font_size = 40
+text = "Treasures Collected: 0/7"

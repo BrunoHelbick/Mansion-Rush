@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvwbqnfkvugkq"]
+
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_m61td"]
+[ext_resource type="Texture2D" uid="uid://b8sqbkm2glr3" path="res://Images/menuimg.png" id="2_dwb7v"]
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_m61td")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(53.3711, 29.9263)
+color = Color(0.114897, 0.114897, 0.114897, 1)
+
+[node name="Menuimg" type="Sprite2D" parent="."]
+position = Vector2(983, 551)
+scale = Vector2(1.01939, 1.01939)
+texture = ExtResource("2_dwb7v")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0.485703, 0.485704, 0.485703, 1)
+offset_left = 471.0
+offset_top = 614.0
+offset_right = 696.0
+offset_bottom = 677.0
+theme_override_font_sizes/font_size = 40
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="."]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 473.0
+offset_top = 706.0
+offset_right = 564.0
+offset_bottom = 769.0
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

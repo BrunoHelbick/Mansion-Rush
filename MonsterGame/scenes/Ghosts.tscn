@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8nc0nirg183o"]
+
+[ext_resource type="Texture2D" uid="uid://bviiwoskcqt65" path="res://Images/ghost2.png" id="1_fdtja"]
+[ext_resource type="Script" path="res://scripts/Ghosts.gd" id="1_sjshu"]
+[ext_resource type="Texture2D" uid="uid://r7loplntn15g" path="res://Images/GhostJumpscare.png" id="3_meqsu"]
+[ext_resource type="AudioStream" uid="uid://b41ylocfo7fsu" path="res://audio/062740_creepy-ghost-scream-81907.mp3" id="4_25n2s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bb6pt"]
+radius = 10.0495
+height = 36.612
+
+[node name="Ghosts" type="Node2D"]
+position = Vector2(474, 157)
+script = ExtResource("1_sjshu")
+
+[node name="Ghost2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-38, -36)
+rotation = 6.27923
+texture = ExtResource("1_fdtja")
+
+[node name="Area2D" type="Area2D" parent="Ghost2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost2/Area2D"]
+position = Vector2(11.0118, -2.95643)
+rotation = 0.441671
+scale = Vector2(1.53525, 1.31687)
+shape = SubResource("CapsuleShape2D_bb6pt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GhostJumpscare" type="Sprite2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(622, 645)
+scale = Vector2(20.6174, 20.6174)
+texture = ExtResource("3_meqsu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_25n2s")
+volume_db = 24.0
+
+[connection signal="body_entered" from="Ghost2/Area2D" to="." method="_on_area_2d_body_entered"]

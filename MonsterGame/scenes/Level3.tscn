@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgxekjhot0k6j"]
+
+[ext_resource type="Texture2D" uid="uid://d3g8xk6w6v08y" path="res://Images/construction.png" id="1_o5e53"]
+
+[node name="Level3" type="Node2D"]
+position = Vector2(404, 317)
+
+[node name="Construction" type="Sprite2D" parent="."]
+position = Vector2(554, 222)
+texture = ExtResource("1_o5e53")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c37nlgpsd240r"
+path="res://.godot/imported/Funeral March (by Chopin) - Chopin.mp3-92b0a99001015d4cb5e62a394b358239.mp3str"
+
+[deps]
+
+source_file="res://audio/Funeral March (by Chopin) - Chopin.mp3"
+dest_files=["res://.godot/imported/Funeral March (by Chopin) - Chopin.mp3-92b0a99001015d4cb5e62a394b358239.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

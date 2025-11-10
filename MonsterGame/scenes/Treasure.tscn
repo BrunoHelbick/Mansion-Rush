@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://5gna1kfibhv5"]
+
+[ext_resource type="Script" path="res://scripts/Treasure.gd" id="1_ftnm0"]
+[ext_resource type="Texture2D" uid="uid://drful2apew8x7" path="res://Images/Treasure.png" id="1_x8b0t"]
+[ext_resource type="AudioStream" uid="uid://rqfgohc32jea" path="res://audio/coffee-slurp-7-94517.mp3" id="3_gciwy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tggpp"]
+size = Vector2(20, 38)
+
+[node name="Treasure" type="Node2D"]
+script = ExtResource("1_ftnm0")
+
+[node name="Treasure" type="Sprite2D" parent="."]
+position = Vector2(284, 286)
+texture = ExtResource("1_x8b0t")
+
+[node name="Area2D" type="Area2D" parent="Treasure"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Treasure/Area2D"]
+position = Vector2(0, 4)
+scale = Vector2(2.22746, 1.46746)
+shape = SubResource("RectangleShape2D_tggpp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gciwy")
+
+[connection signal="body_entered" from="Treasure/Area2D" to="." method="_on_area_2d_body_entered"]
