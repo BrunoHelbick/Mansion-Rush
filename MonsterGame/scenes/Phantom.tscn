@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=3 uid="uid://defhv8g7c7852"]
+
+[ext_resource type="Script" path="res://scripts/Phantom.gd" id="1_ihs1b"]
+[ext_resource type="AudioStream" uid="uid://dbef30s2nc4au" path="res://audio/jump-scare-sound-2-82831.mp3" id="3_llta6"]
+[ext_resource type="Texture2D" uid="uid://der5o4buww5lc" path="res://Images/Pixel Art Fire Ball by Matheus Frantz/FireBall/Sheets/IdleLoop-Sheet.png" id="5_007tk"]
+[ext_resource type="Texture2D" uid="uid://eom0wl6lf2bm" path="res://Images/Phantomhead.png" id="6_s5857"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ul02"]
+atlas = ExtResource("5_007tk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx20d"]
+atlas = ExtResource("5_007tk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc6w8"]
+atlas = ExtResource("5_007tk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuf4n"]
+atlas = ExtResource("5_007tk")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olncu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ul02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx20d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc6w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuf4n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1po4m"]
+radius = 6.49275
+height = 22.2609
+
+[node name="Ghosts" type="Node2D"]
+position = Vector2(474, 157)
+script = ExtResource("1_ihs1b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GhostJumpscare" type="Sprite2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(622, 645)
+scale = Vector2(2.40551, 2.40551)
+texture = ExtResource("6_s5857")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_llta6")
+volume_db = 24.0
+
+[node name="Phantom1" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.15625, 2.15625)
+sprite_frames = SubResource("SpriteFrames_olncu")
+
+[node name="Area2D" type="Area2D" parent="Phantom1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phantom1/Area2D"]
+position = Vector2(0, -2.78261)
+shape = SubResource("CapsuleShape2D_1po4m")
+
+[node name="Phantom2" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.15625, 2.15625)
+sprite_frames = SubResource("SpriteFrames_olncu")
+
+[node name="Area2D" type="Area2D" parent="Phantom2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phantom2/Area2D"]
+position = Vector2(0, -2.78261)
+shape = SubResource("CapsuleShape2D_1po4m")
+
+[node name="Phantom4" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.15625, 2.15625)
+sprite_frames = SubResource("SpriteFrames_olncu")
+
+[node name="Area2D" type="Area2D" parent="Phantom4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phantom4/Area2D"]
+position = Vector2(0, -2.78261)
+shape = SubResource("CapsuleShape2D_1po4m")
+
+[node name="Phantom5" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.15625, 2.15625)
+sprite_frames = SubResource("SpriteFrames_olncu")
+
+[node name="Area2D" type="Area2D" parent="Phantom5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phantom5/Area2D"]
+position = Vector2(0, -2.78261)
+shape = SubResource("CapsuleShape2D_1po4m")
+
+[node name="Phantom3" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.15625, 2.15625)
+sprite_frames = SubResource("SpriteFrames_olncu")
+
+[node name="Area2D" type="Area2D" parent="Phantom3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phantom3/Area2D"]
+position = Vector2(0, -2.78261)
+shape = SubResource("CapsuleShape2D_1po4m")
+
+[node name="Phantomhead" type="Sprite2D" parent="."]
+scale = Vector2(0.107459, 0.107459)
+texture = ExtResource("6_s5857")

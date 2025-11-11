@@ -188,6 +188,7 @@ position = Vector2(1567, -321)
 position = Vector2(1364, 688)
 
 [node name="Character" parent="." instance=ExtResource("6_sr3au")]
+z_index = 3
 position = Vector2(46, -3)
 
 [node name="Hud" parent="." instance=ExtResource("8_2pg6e")]

@@ -12,3 +12,4 @@ func getNextLevel():
 
 func resetTreasure():
 	TreasureCount = 0
+

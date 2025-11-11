@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://brfy0rpbejmke"]
+
+[ext_resource type="Script" path="res://scripts/Harpie.gd" id="1_uavj8"]
+[ext_resource type="Texture2D" uid="uid://bkit21b8lsa2d" path="res://Images/Harpie.png" id="2_5yuun"]
+[ext_resource type="AudioStream" uid="uid://b41ylocfo7fsu" path="res://audio/062740_creepy-ghost-scream-81907.mp3" id="4_0070w"]
+[ext_resource type="AudioStream" uid="uid://dinqby44iu11p" path="res://audio/whispers-of-heaven-410020.mp3" id="5_jxnro"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w0i61"]
+radius = 20.5162
+
+[node name="Harpie" type="Node2D"]
+position = Vector2(474, 157)
+script = ExtResource("1_uavj8")
+
+[node name="Ghost2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-38, -36)
+rotation = 6.27923
+
+[node name="Area2D" type="Area2D" parent="Ghost2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost2/Area2D"]
+position = Vector2(-9.53674e-06, 1.43051e-06)
+rotation = 0.441671
+scale = Vector2(1.53525, 1.31687)
+shape = SubResource("CircleShape2D_w0i61")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GhostJumpscare" type="Sprite2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(622, 645)
+texture = ExtResource("2_5yuun")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0070w")
+volume_db = 24.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jxnro")
+
+[connection signal="body_entered" from="Ghost2/Area2D" to="." method="_on_area_2d_body_entered"]

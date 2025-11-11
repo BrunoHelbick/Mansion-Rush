@@ -1,12 +1,15 @@
-[gd_scene load_steps=40 format=3 uid="uid://ddpq5a88g75d4"]
+[gd_scene load_steps=41 format=3 uid="uid://ddpq5a88g75d4"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_rw17f"]
 [ext_resource type="Texture2D" uid="uid://dq4tyesporain" path="res://Images/48x48/Char_001_Idle.png" id="3_ege8y"]
 [ext_resource type="Texture2D" uid="uid://bhohjb363ocfl" path="res://Images/48x48/Char_001.png" id="4_aii1m"]
 [ext_resource type="AudioStream" uid="uid://dnf6gcbto3uck" path="res://audio/concrete-footsteps-6752.mp3" id="5_c13xg"]
+[ext_resource type="Texture2D" uid="uid://b5cxva82wmdef" path="res://Images/LightBrighter.png" id="6_hyeya"]
 [ext_resource type="Texture2D" uid="uid://dx8sq14vqyy0p" path="res://Images/finallight.png" id="9_igfhv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvaoc"]
+radius = 11.7043
+height = 61.1058
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onln3"]
 atlas = ExtResource("3_ege8y")
@@ -276,20 +279,20 @@ animations = [{
 }]
 
 [node name="Character" type="Node2D"]
-position = Vector2(560, 308)
+position = Vector2(545, 310)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(49, -1)
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(3.8147e-06, 0)
 scale = Vector2(0.12, 0.12)
 script = ExtResource("1_rw17f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-408.333, 75)
+position = Vector2(-2.33377, 30.9995)
 scale = Vector2(7.31923, 4.9859)
 shape = SubResource("CapsuleShape2D_gvaoc")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(-408.333, 8.33333)
+position = Vector2(-2.33377, -35.6672)
 scale = Vector2(-1.28622, -1.28622)
 zoom = Vector2(2, 2)
 process_callback = 0
@@ -297,47 +300,54 @@ position_smoothing_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
 z_index = 5
-offset_left = -5875.0
-offset_top = 1016.67
-offset_right = -5835.0
-offset_bottom = 1056.67
+offset_left = -5925.0
+offset_top = 1375.0
+offset_right = -5885.0
+offset_bottom = 1415.0
 scale = Vector2(289.359, 107.246)
-color = Color(0, 0, 0, 1)
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="CharacterBody2D"]
 z_index = 5
-offset_left = -8108.33
-offset_top = -1041.67
-offset_right = -8068.33
-offset_bottom = -1001.67
+offset_left = -8125.0
+offset_top = -1358.33
+offset_right = -8085.0
+offset_bottom = -1318.33
 scale = Vector2(398.834, -87.0292)
-color = Color(0, 0, 0, 1)
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="CharacterBody2D"]
 z_index = 5
-offset_left = 1141.67
-offset_top = -1916.67
-offset_right = 1181.67
-offset_bottom = -1876.67
+offset_left = 2191.67
+offset_top = -1966.67
+offset_right = 2231.67
+offset_bottom = -1926.67
 scale = Vector2(91.393, 102.429)
-color = Color(0, 0, 0, 1)
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="CharacterBody2D"]
 z_index = 6
-offset_left = -5966.67
-offset_top = -3233.33
-offset_right = -5926.67
-offset_bottom = -3193.33
+offset_left = -6658.33
+offset_top = -3300.0
+offset_right = -6618.33
+offset_bottom = -3260.0
 scale = Vector2(111.017, 186.716)
-color = Color(0, 0, 0, 1)
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(-408.333, 0)
-scale = Vector2(4.33332, 4.33332)
+position = Vector2(-2.33383, -44.0005)
+scale = Vector2(6.31108, 6.31108)
 sprite_frames = SubResource("SpriteFrames_l0xx2")
-animation = &"run_up"
+animation = &"run_right"
+
+[node name="LightBrighter" type="Sprite2D" parent="CharacterBody2D"]
+z_index = 5
+position = Vector2(25, 58.3333)
+scale = Vector2(2.62346, 2.62346)
+texture = ExtResource("6_hyeya")
 
 [node name="Finallight" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
 z_index = 6
 position = Vector2(-375, 75)
 scale = Vector2(2.33334, 2.33334)
