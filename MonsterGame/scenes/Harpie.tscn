@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Harpie.gd" id="1_uavj8"]
 [ext_resource type="Texture2D" uid="uid://bkit21b8lsa2d" path="res://Images/Harpie.png" id="2_5yuun"]
-[ext_resource type="AudioStream" uid="uid://b41ylocfo7fsu" path="res://audio/062740_creepy-ghost-scream-81907.mp3" id="4_0070w"]
+[ext_resource type="AudioStream" uid="uid://bedueuunucs7t" path="res://audio/cathedral_reverb_jumpscare-83337.mp3" id="3_6isj2"]
 [ext_resource type="AudioStream" uid="uid://dmkdxthvb23tx" path="res://audio/harpie.mp3" id="4_bbbxv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w0i61"]
@@ -35,7 +35,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_5yuun")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_0070w")
+stream = ExtResource("3_6isj2")
 volume_db = 24.0
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]

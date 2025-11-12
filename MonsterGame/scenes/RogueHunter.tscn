@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://ej7mbk0ni256"]
+[gd_scene load_steps=30 format=3 uid="uid://ej7mbk0ni256"]
 
-[ext_resource type="Script" path="res://scenes/RogueHunter.gd" id="1_k2kjw"]
+[ext_resource type="Script" path="res://scripts/RogueHunter.gd" id="1_pi5hs"]
 [ext_resource type="Texture2D" uid="uid://caj660pu4tmds" path="res://Images/Char_002.PNG" id="2_ewjrx"]
+[ext_resource type="FontFile" uid="uid://cxw2j57e7vpgl" path="res://Images/Minecraft.ttf" id="3_4uonq"]
 [ext_resource type="AudioStream" uid="uid://b41ylocfo7fsu" path="res://audio/062740_creepy-ghost-scream-81907.mp3" id="4_ke15y"]
 [ext_resource type="Texture2D" uid="uid://qhalv1agvn25" path="res://Images/48x48/Char_002_Idle.png" id="5_4a1ny"]
 [ext_resource type="Texture2D" uid="uid://wbk0muhdinte" path="res://Images/48x48/Char_002.png" id="6_8cf62"]
@@ -183,7 +184,7 @@ radius = 479.768
 
 [node name="Ghosts" type="CharacterBody2D"]
 position = Vector2(474, 157)
-script = ExtResource("1_k2kjw")
+script = ExtResource("1_pi5hs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -201,6 +202,7 @@ offset_top = 542.0
 offset_right = 1723.0
 offset_bottom = 600.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4uonq")
 theme_override_font_sizes/font_size = 41
 text = "You should have handed it over quitely"
 

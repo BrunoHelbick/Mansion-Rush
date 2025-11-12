@@ -1,0 +1,216 @@
+[gd_scene load_steps=16 format=3 uid="uid://jliiuare4t34"]
+
+[ext_resource type="Script" path="res://scripts/Shop.gd" id="1_0hp8y"]
+[ext_resource type="Texture2D" uid="uid://cweilwsqu4ve7" path="res://Images/48x48/Char_006_Idle.png" id="2_ttei1"]
+[ext_resource type="Texture2D" uid="uid://bup2oqajucdp1" path="res://Images/inventory.png" id="3_4q27s"]
+[ext_resource type="FontFile" uid="uid://cxw2j57e7vpgl" path="res://Images/Minecraft.ttf" id="4_3luee"]
+[ext_resource type="Texture2D" uid="uid://c2a7bcmgpf8np" path="res://Images/Torch.png" id="5_6f8pj"]
+[ext_resource type="Texture2D" uid="uid://bgg18jv0byd7b" path="res://Images/Invincible.png" id="6_jwtpo"]
+[ext_resource type="Texture2D" uid="uid://v0fernq2w5o2" path="res://Images/Shoes.png" id="7_tffbd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w64ak"]
+atlas = ExtResource("2_ttei1")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_astbe"]
+atlas = ExtResource("2_ttei1")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi4pk"]
+atlas = ExtResource("2_ttei1")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nut23"]
+atlas = ExtResource("2_ttei1")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ut415"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w64ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_astbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi4pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nut23")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_reps0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7thv0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ipad"]
+radius = 13.0
+height = 40.0
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_0hp8y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ut415")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 40)
+scale = Vector2(4.28688, 3.37293)
+shape = SubResource("CircleShape2D_reps0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+visible = false
+
+[node name="Inventory" type="Sprite2D" parent="Control/CanvasLayer"]
+position = Vector2(944, 470)
+rotation = -3.14159
+scale = Vector2(7.435, 7.435)
+texture = ExtResource("3_4q27s")
+
+[node name="Brightness" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 685.0
+offset_top = 99.0
+offset_right = 1177.0
+offset_bottom = 180.0
+theme_override_colors/font_color = Color(0.934401, 0.803638, 0.171803, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_3luee")
+theme_override_font_sizes/font_size = 38
+text = "Increase Torch Brightness
+Gold: 5"
+
+[node name="Invincibility" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 685.0
+offset_top = 99.0
+offset_right = 1060.0
+offset_bottom = 180.0
+theme_override_colors/font_color = Color(0.934401, 0.803638, 0.171803, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_3luee")
+theme_override_font_sizes/font_size = 38
+text = "Invincibility
+Gold: 5"
+
+[node name="Speed" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 685.0
+offset_top = 99.0
+offset_right = 1060.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(0.934401, 0.803638, 0.171803, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_3luee")
+theme_override_font_sizes/font_size = 38
+text = "Speed Increase
+Gold: 5"
+
+[node name="Brightness2" type="Area2D" parent="Control/CanvasLayer"]
+position = Vector2(0, -91)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/CanvasLayer/Brightness2"]
+position = Vector2(755, 374)
+scale = Vector2(5.6, 5.6)
+shape = SubResource("RectangleShape2D_7thv0")
+
+[node name="Torch" type="Sprite2D" parent="Control/CanvasLayer/Brightness2"]
+position = Vector2(755, 358)
+scale = Vector2(0.53125, 0.53125)
+texture = ExtResource("5_6f8pj")
+
+[node name="Invincibility2" type="Area2D" parent="Control/CanvasLayer"]
+position = Vector2(126, -91)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/CanvasLayer/Invincibility2"]
+position = Vector2(755, 374)
+scale = Vector2(5.6, 5.6)
+shape = SubResource("RectangleShape2D_7thv0")
+
+[node name="Invincible" type="Sprite2D" parent="Control/CanvasLayer/Invincibility2"]
+position = Vector2(755, 374)
+scale = Vector2(0.399998, 0.399998)
+texture = ExtResource("6_jwtpo")
+
+[node name="Speed2" type="Area2D" parent="Control/CanvasLayer"]
+position = Vector2(252, -91)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/CanvasLayer/Speed2"]
+position = Vector2(755, 374)
+scale = Vector2(5.6, 5.6)
+shape = SubResource("RectangleShape2D_7thv0")
+
+[node name="Shoes" type="Sprite2D" parent="Control/CanvasLayer/Speed2"]
+position = Vector2(768, 395)
+scale = Vector2(0.559999, 0.559999)
+texture = ExtResource("7_tffbd")
+
+[node name="X1" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 699.0
+offset_top = 202.0
+offset_right = 739.0
+offset_bottom = 281.0
+scale = Vector2(3.04, 2.16)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "X"
+
+[node name="X2" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 825.0
+offset_top = 202.0
+offset_right = 865.0
+offset_bottom = 281.0
+scale = Vector2(3.04, 2.16)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "X"
+
+[node name="X3" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 951.0
+offset_top = 202.0
+offset_right = 991.0
+offset_bottom = 281.0
+scale = Vector2(3.04, 2.16)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "X"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -98.0
+offset_top = -56.0
+offset_right = 108.0
+offset_bottom = -33.0
+theme_override_colors/font_color = Color(0.93264, 0.651869, 0, 1)
+theme_override_fonts/font = ExtResource("4_3luee")
+theme_override_font_sizes/font_size = 22
+text = "Press 'e' to interact"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 13)
+scale = Vector2(1.12, 1.32)
+shape = SubResource("CapsuleShape2D_3ipad")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

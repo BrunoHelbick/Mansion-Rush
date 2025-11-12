@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dx8sq14vqyy0p" path="res://Images/finallight.png" id="9_igfhv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvaoc"]
-radius = 11.7043
-height = 61.1058
+radius = 11.6667
+height = 50.9336
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onln3"]
 atlas = ExtResource("3_ege8y")
@@ -287,8 +287,8 @@ scale = Vector2(0.12, 0.12)
 script = ExtResource("1_rw17f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-2.33377, 30.9995)
-scale = Vector2(7.31923, 4.9859)
+position = Vector2(-0.000192404, -3.8147e-06)
+scale = Vector2(5, 5)
 shape = SubResource("CapsuleShape2D_gvaoc")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
@@ -300,18 +300,18 @@ position_smoothing_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
 z_index = 5
-offset_left = -5925.0
-offset_top = 1375.0
-offset_right = -5885.0
-offset_bottom = 1415.0
+offset_left = -5541.67
+offset_top = 1475.0
+offset_right = -5501.67
+offset_bottom = 1515.0
 scale = Vector2(289.359, 107.246)
 color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="CharacterBody2D"]
 z_index = 5
-offset_left = -8125.0
+offset_left = -7950.0
 offset_top = -1358.33
-offset_right = -8085.0
+offset_right = -7910.0
 offset_bottom = -1318.33
 scale = Vector2(398.834, -87.0292)
 color = Color(0.00392157, 0.00392157, 0.00392157, 1)
@@ -336,14 +336,22 @@ color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(-2.33383, -44.0005)
-scale = Vector2(6.31108, 6.31108)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_l0xx2")
 animation = &"run_right"
 
 [node name="LightBrighter" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
 z_index = 5
 position = Vector2(25, 58.3333)
 scale = Vector2(2.62346, 2.62346)
+texture = ExtResource("6_hyeya")
+
+[node name="LightBrighter2" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
+z_index = 5
+position = Vector2(25, 58.3333)
+scale = Vector2(5.62347, 5.62347)
 texture = ExtResource("6_hyeya")
 
 [node name="Finallight" type="Sprite2D" parent="CharacterBody2D"]

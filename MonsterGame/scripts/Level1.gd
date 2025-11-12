@@ -9,6 +9,8 @@ func _ready():
 	audio_player.volume_db = -30
 	audio_player.play() 
 	
+func _enter_tree():
+	GameState.nextlvl = 1
 
 
 func _on_timer_timeout():

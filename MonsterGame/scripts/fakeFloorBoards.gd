@@ -29,6 +29,8 @@ func start_vibration() -> void:
 
 func _on_area_2d_body_entered(body):
 	if body is Character:
+		if body.get_is_invincible():
+			return
 		if floorJumpscare:
 			floorJumpscare.visible = true
 			audio_player.play()

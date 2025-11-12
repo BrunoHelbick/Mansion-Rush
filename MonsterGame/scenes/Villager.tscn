@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5iwpbivorby7"]
+
+[ext_resource type="Script" path="res://scripts/Villager.gd" id="1_kncal"]
+[ext_resource type="Texture2D" uid="uid://be43qr54la007" path="res://Images/48x48/Char_006.png" id="3_cxf0y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yajrh"]
+atlas = ExtResource("3_cxf0y")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47xt3"]
+atlas = ExtResource("3_cxf0y")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w80p"]
+atlas = ExtResource("3_cxf0y")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbjrq"]
+atlas = ExtResource("3_cxf0y")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ckvp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yajrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47xt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w80p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbjrq")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Move_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Move_right",
+"speed": 5.0
+}]
+
+[node name="Villager" type="Node2D"]
+position = Vector2(476, 159)
+script = ExtResource("1_kncal")
+
+[node name="Villager" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0ckvp")
+animation = &"Idle"

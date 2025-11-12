@@ -64,6 +64,8 @@ func update_phantom_position(index: int) -> void:
 
 func _on_phantom_body_entered(body):
 	if body is Character and not has_triggered_jumpscare: 
+		if body.get_is_invincible():
+			return
 		has_triggered_jumpscare = true
 		if body is Character:
 			if ghostJumpscare:

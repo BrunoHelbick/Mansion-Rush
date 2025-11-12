@@ -9,6 +9,8 @@ func _ready():
 
 func _on_area_2d_body_entered(body):
 	if body is Character:
+		if body.get_is_invincible():
+			return
 		if whisker:
 			whisker.visible = true
 			GameState.resetTreasure()

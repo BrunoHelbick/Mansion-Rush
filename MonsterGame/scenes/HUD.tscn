@@ -24,3 +24,17 @@ theme_override_colors/font_color = Color(0.468327, 1.10099e-06, 1.68458e-07, 1)
 theme_override_fonts/font = ExtResource("2_rsb76")
 theme_override_font_sizes/font_size = 40
 text = "Treasures Collected: 0/7"
+
+[node name="Label2" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 727.5
+offset_top = 1007.0
+offset_right = 1192.5
+offset_bottom = 1047.0
+theme_override_colors/font_color = Color(0.90583, 0.701058, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_rsb76")
+theme_override_font_sizes/font_size = 39
+text = "Press 'T' For Invincibility"
+horizontal_alignment = 1

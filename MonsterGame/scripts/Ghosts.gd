@@ -26,6 +26,8 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body):
 	if body is Character:
+		if body.get_is_invincible():
+			return
 		if ghostJumpscare:
 			ghostJumpscare.visible = true
 			audio_player.play()

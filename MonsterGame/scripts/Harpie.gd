@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var max_audio_distance = 200  # Distance to silent
-@export var min_audio_distance = 30   # Distance to loudest
+@export var max_audio_distance = 550  # Distance to silent
+@export var min_audio_distance = 1   # Distance to loudest
 var ghost : Node2D
 var Level1: String
 var is_scene_changing = false 
@@ -43,6 +43,8 @@ func update_proximity_audio() -> void:
 
 func _on_area_2d_body_entered(body):
 	if body is Character:
+		if body.get_is_invincible():
+			return
 		if ghostJumpscare:
 			ghostJumpscare.visible = true
 			audio_player.play()
