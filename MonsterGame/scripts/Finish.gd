@@ -5,6 +5,7 @@ func _on_area_2d_body_entered(body):
 			var current_level = get_level_number()
 			GameState.gold += 5
 			GameState.getNextLevel(current_level)
+			GameState.save_game()
 			await get_tree().create_timer(0.1).timeout
 			var Village = "res://scenes/Village.tscn"
 			get_tree().change_scene_to_file(Village)

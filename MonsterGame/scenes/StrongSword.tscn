@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfpl08v4pbo4j"]
+
+[ext_resource type="Script" path="res://scripts/StrongSword.gd" id="1_8sed8"]
+[ext_resource type="Texture2D" uid="uid://dxby8r6q5hgeg" path="res://Images/Icons/Iicon_32_37.png" id="3_rfykq"]
+[ext_resource type="AudioStream" uid="uid://cft3rphclw80r" path="res://audio/violent-sword-slice-393848.mp3" id="3_vrct5"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j2e0s"]
+b = Vector2(-14, 14)
+
+[node name="Sword" type="Area2D" groups=["sword"]]
+scale = Vector2(10, 10)
+script = ExtResource("1_8sed8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, -16)
+scale = Vector2(2.24, 2.24)
+shape = SubResource("SegmentShape2D_j2e0s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vrct5")
+
+[node name="Iicon3237" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, 4.76837e-07)
+texture = ExtResource("3_rfykq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -7,7 +7,9 @@ extends Node2D
 @onready var audio = $AudioStreamPlayer
 @onready var gold_label = $Control/CanvasLayer/GoldCount
 
+# Setup connections and handle locks level labels
 func _ready():
+	GameState.load_game()
 	mansion_area.body_entered.connect(_on_mansion_entered)
 	forest_area.body_entered.connect(_on_forest_entered)
 	hide_ui_elements()
@@ -24,6 +26,7 @@ func _ready():
 func _process(delta):
 	gold_label.text = "Gold: " + str(GameState.gold)
 
+# Handle unlocked levels
 func _on_mansion_entered(body):
 	if body is Character:
 		hide_ui_elements()
@@ -35,6 +38,7 @@ func _on_forest_entered(body):
 			hide_ui_elements()
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/Level3.tscn")
 
+# Hide horror theme
 func hide_ui_elements():
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
@@ -44,11 +48,21 @@ func hide_ui_elements():
 			light.visible = false
 		if light2:
 				light2.visible = false
+
 func _on_audio_finished():
 	audio.play()
 
+# Handle unlocked levels
 func _on_mansion_2_body_entered(body):
 	if body is Character:
 		if GameState.unlockedLevels > 1:
 			hide_ui_elements()
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/Level2.tscn")
+
+
+func _on_colosseum_2_body_entered(body):
+	if body is Character:
+		if GameState.has_any_sword():
+			get_tree().call_deferred("change_scene_to_file", "res://scenes/Colosseum.tscn")
+		else:
+			print("Player doesn't have sword!")

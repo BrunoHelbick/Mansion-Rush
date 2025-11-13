@@ -17,33 +17,44 @@ position = Vector2(983, 551)
 scale = Vector2(1.01939, 1.01939)
 texture = ExtResource("2_dwb7v")
 
+[node name="Button4" type="Button" parent="."]
+modulate = Color(0.485703, 0.485704, 0.485703, 1)
+offset_left = 471.0
+offset_top = 612.0
+offset_right = 696.0
+offset_bottom = 676.0
+theme_override_font_sizes/font_size = 40
+text = "New Game"
+
 [node name="Button" type="Button" parent="."]
 modulate = Color(0.485703, 0.485704, 0.485703, 1)
 offset_left = 471.0
-offset_top = 614.0
-offset_right = 696.0
-offset_bottom = 677.0
+offset_top = 683.0
+offset_right = 698.0
+offset_bottom = 747.0
 theme_override_font_sizes/font_size = 40
-text = "Start Game"
+text = "Load Game"
 
 [node name="Button2" type="Button" parent="."]
 modulate = Color(0.450648, 0.450648, 0.450648, 1)
 offset_left = 473.0
-offset_top = 797.0
+offset_top = 827.0
 offset_right = 565.0
-offset_bottom = 861.0
+offset_bottom = 891.0
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 
 [node name="Button3" type="Button" parent="."]
 modulate = Color(0.450648, 0.450648, 0.450648, 1)
 offset_left = 472.0
-offset_top = 707.0
+offset_top = 754.0
 offset_right = 635.0
-offset_bottom = 771.0
+offset_bottom = 818.0
 theme_override_font_sizes/font_size = 40
 text = "Settings"
 
+[connection signal="pressed" from="Button4" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

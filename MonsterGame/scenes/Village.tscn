@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dyvgkre5d3n4g"]
+[gd_scene load_steps=24 format=3 uid="uid://dyvgkre5d3n4g"]
 
 [ext_resource type="Texture2D" uid="uid://dfekuu3urykc8" path="res://Images/SUMMERVILLE - Forest (Free Version)/Tileset/Trees.png" id="1_dpei0"]
 [ext_resource type="Script" path="res://scripts/Village.gd" id="1_qvuxv"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://boyv7efwpp7rq" path="res://scenes/villager2.tscn" id="11_v5bd5"]
 [ext_resource type="AudioStream" uid="uid://c8rh8g7x2qjsa" path="res://audio/whispers-of-the-meadow-1-303141.mp3" id="12_klwhs"]
 [ext_resource type="PackedScene" uid="uid://jliiuare4t34" path="res://scenes/Shop.tscn" id="13_c17kt"]
+[ext_resource type="PackedScene" uid="uid://bud70jatlqvad" path="res://scenes/WeaponCaddy.tscn" id="14_jhf1y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4va43"]
 texture = ExtResource("1_dpei0")
@@ -3123,6 +3124,13 @@ scale = Vector2(4.54095, -4.17833)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Forest"]
 shape = SubResource("CircleShape2D_bx2fc")
 
+[node name="Colosseum2" type="Area2D" parent="."]
+position = Vector2(384, 1292)
+scale = Vector2(4.54095, -4.17833)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colosseum2"]
+shape = SubResource("CircleShape2D_bx2fc")
+
 [node name="Mansion2" type="Area2D" parent="."]
 position = Vector2(2472, 1292)
 scale = Vector2(4.54095, -4.17833)
@@ -3173,4 +3181,9 @@ theme_override_fonts/font = ExtResource("6_rb3sw")
 theme_override_font_sizes/font_size = 98
 text = "Gold: "
 
+[node name="WeaponCaddy" parent="." instance=ExtResource("14_jhf1y")]
+position = Vector2(567, 1010)
+scale = Vector2(1.32, 1.32)
+
+[connection signal="body_entered" from="Colosseum2" to="." method="_on_colosseum_2_body_entered"]
 [connection signal="body_entered" from="Mansion2" to="." method="_on_mansion_2_body_entered"]

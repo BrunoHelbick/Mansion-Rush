@@ -1,0 +1,211 @@
+[gd_scene load_steps=16 format=3 uid="uid://bud70jatlqvad"]
+
+[ext_resource type="Script" path="res://scripts/WeaponCaddy.gd" id="1_1ytfy"]
+[ext_resource type="Texture2D" uid="uid://cweilwsqu4ve7" path="res://Images/48x48/Char_006_Idle.png" id="2_1aexd"]
+[ext_resource type="Texture2D" uid="uid://bup2oqajucdp1" path="res://Images/inventory.png" id="3_3151x"]
+[ext_resource type="FontFile" uid="uid://cxw2j57e7vpgl" path="res://Images/Minecraft.ttf" id="4_06jy5"]
+[ext_resource type="Texture2D" uid="uid://7c8vhcgfgde7" path="res://Images/Icons/Iicon_32_01.png" id="5_c8um0"]
+[ext_resource type="Texture2D" uid="uid://c5ne0rcxkno6l" path="res://Images/Icons/Iicon_32_35.png" id="6_viikh"]
+[ext_resource type="Texture2D" uid="uid://dxby8r6q5hgeg" path="res://Images/Icons/Iicon_32_37.png" id="7_si15v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0orbg"]
+atlas = ExtResource("2_1aexd")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6tb7"]
+atlas = ExtResource("2_1aexd")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw6ek"]
+atlas = ExtResource("2_1aexd")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo5tf"]
+atlas = ExtResource("2_1aexd")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5nm5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0orbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6tb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw6ek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo5tf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8tp3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2g6xy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bnavw"]
+
+[node name="WeaponCaddy" type="Node2D"]
+script = ExtResource("1_1ytfy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a5nm5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+visible = false
+
+[node name="Inventory" type="Sprite2D" parent="Control/CanvasLayer"]
+position = Vector2(890, 536)
+scale = Vector2(6.96, 6.96)
+texture = ExtResource("3_3151x")
+
+[node name="Sword1Area" type="Area2D" parent="Control/CanvasLayer"]
+position = Vector2(715, 354)
+scale = Vector2(4.62595, 4.62595)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/CanvasLayer/Sword1Area"]
+shape = SubResource("RectangleShape2D_w8tp3")
+
+[node name="Sword2Area" type="Area2D" parent="Control/CanvasLayer"]
+position = Vector2(831, 354)
+scale = Vector2(4.62595, 4.62595)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/CanvasLayer/Sword2Area"]
+shape = SubResource("RectangleShape2D_w8tp3")
+
+[node name="Sword3Area" type="Area2D" parent="Control/CanvasLayer"]
+position = Vector2(951, 354)
+scale = Vector2(4.62595, 4.62595)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/CanvasLayer/Sword3Area"]
+shape = SubResource("RectangleShape2D_w8tp3")
+
+[node name="Sword1Label" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 658.0
+offset_top = 220.0
+offset_right = 904.0
+offset_bottom = 262.0
+theme_override_colors/font_color = Color(1, 0.859425, 0.171354, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("4_06jy5")
+theme_override_font_sizes/font_size = 44
+text = "Basic Sword"
+
+[node name="Sword2Label" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 658.0
+offset_top = 220.0
+offset_right = 904.0
+offset_bottom = 262.0
+theme_override_colors/font_color = Color(1, 0.859425, 0.171354, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("4_06jy5")
+theme_override_font_sizes/font_size = 44
+text = "Fast Sword"
+
+[node name="Sword3Label" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 658.0
+offset_top = 220.0
+offset_right = 904.0
+offset_bottom = 262.0
+theme_override_colors/font_color = Color(1, 0.859425, 0.171354, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("4_06jy5")
+theme_override_font_sizes/font_size = 44
+text = "Strong Sword"
+
+[node name="Iicon3201" type="Sprite2D" parent="Control/CanvasLayer"]
+position = Vector2(715, 354)
+scale = Vector2(2.36, 2.36)
+texture = ExtResource("5_c8um0")
+
+[node name="Iicon3235" type="Sprite2D" parent="Control/CanvasLayer"]
+position = Vector2(831, 354)
+scale = Vector2(2.83463, 2.83463)
+texture = ExtResource("6_viikh")
+
+[node name="Iicon3237" type="Sprite2D" parent="Control/CanvasLayer"]
+position = Vector2(951, 354)
+scale = Vector2(2.44, 2.44)
+texture = ExtResource("7_si15v")
+
+[node name="Sword1Check" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 674.0
+offset_top = 315.0
+offset_right = 714.0
+offset_bottom = 371.0
+scale = Vector2(2.37601, 1.92414)
+theme_override_colors/font_color = Color(0.803922, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_06jy5")
+theme_override_font_sizes/font_size = 56
+text = "X"
+
+[node name="Sword2Check" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 790.0
+offset_top = 315.0
+offset_right = 830.0
+offset_bottom = 371.0
+scale = Vector2(2.37601, 1.92414)
+theme_override_colors/font_color = Color(0.803922, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_06jy5")
+theme_override_font_sizes/font_size = 56
+text = "X"
+
+[node name="Sword3Check" type="Label" parent="Control/CanvasLayer"]
+visible = false
+offset_left = 909.0
+offset_top = 315.0
+offset_right = 949.0
+offset_bottom = 371.0
+scale = Vector2(2.37601, 1.92414)
+theme_override_colors/font_color = Color(0.803922, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_06jy5")
+theme_override_font_sizes/font_size = 56
+text = "X"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(1.50309, 1.54719)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CapsuleShape2D_2g6xy")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(3.88, 3.88)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 7.73196)
+shape = SubResource("CircleShape2D_bnavw")
+
+[node name="Label" type="Label" parent="."]
+z_index = 7
+offset_left = -79.0
+offset_top = -44.0
+offset_right = 92.0
+offset_bottom = -21.6667
+theme_override_colors/font_color = Color(0.977296, 0.830287, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_06jy5")
+text = "Press \"e\" To Interact"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

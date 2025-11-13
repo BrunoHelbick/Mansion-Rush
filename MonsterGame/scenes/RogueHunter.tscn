@@ -212,9 +212,7 @@ volume_db = 24.0
 
 [node name="Hunter" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_35maj")
-animation = &"Move_up"
-frame = 3
-frame_progress = 0.833566
+animation = &"Move_left"
 
 [node name="Area2D" type="Area2D" parent="Hunter"]
 position = Vector2(-5, 15)

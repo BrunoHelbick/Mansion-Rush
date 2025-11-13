@@ -7,6 +7,7 @@ func _enter_tree():
 
 
 func _ready():
+	GameState.TreasureCount = 0
 	audio_player = $AudioStreamPlayer
 	audio_player.volume_db = -30
 	audio_player.play()

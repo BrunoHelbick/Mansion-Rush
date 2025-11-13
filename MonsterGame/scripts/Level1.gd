@@ -5,6 +5,7 @@ var audio_player : AudioStreamPlayer
 @onready var timer = $Timer
 
 func _ready():
+	GameState.TreasureCount = 0
 	audio_player = $AudioStreamPlayer
 	audio_player.volume_db = -30
 	audio_player.play() 

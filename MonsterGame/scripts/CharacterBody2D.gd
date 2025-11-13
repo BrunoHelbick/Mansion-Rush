@@ -1,6 +1,5 @@
 extends CharacterBody2D
 class_name Character
-
 @export var speed: float = 140.0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var walking_audio = $AudioStreamPlayer
@@ -12,11 +11,13 @@ var invincibility_time_left = 0.0
 var invincibility_duration = 5.0
 var invincibility_used_this_level = false
 
+# Setup character
 func _ready():
 	if animated_sprite == null:
 		print("AnimatedSprite2D not found")
 	if walking_audio == null:
 		print("AudioStreamPlayer not found")
+	animated_sprite.animation = "idle_down"
 	if GameState.brightness_activated:
 		light_brighter.visible = false
 		light_brighter2.visible = true
@@ -25,14 +26,19 @@ func _ready():
 		light_brighter2.visible = false
 	
 	invincibility_used_this_level = false
-
+	
+	
+# Control character movement
 func _physics_process(_delta: float) -> void:
+	if get_tree().paused:
+		return
 	if is_invincible:
 		invincibility_time_left -= _delta
 		if invincibility_time_left <= 0:
 			is_invincible = false
 			animated_sprite.modulate = Color.WHITE
 	
+	# Invincibility activation
 	if Input.is_action_just_pressed("T") and GameState.invincibility_activated and not invincibility_used_this_level and not is_invincible:
 		activate_invincibility()
 	
@@ -51,10 +57,8 @@ func _physics_process(_delta: float) -> void:
 			velocity.y -= speed
 		if Input.is_action_pressed("move_down"):
 			velocity.y += speed
-
 		self.velocity = velocity
 		move_and_slide()
-
 	if velocity != Vector2.ZERO:
 		if not walking_audio.playing:
 			walking_audio.play()
@@ -68,7 +72,6 @@ func _physics_process(_delta: float) -> void:
 				animated_sprite.animation = "run_down"
 			else:
 				animated_sprite.animation = "run_up"
-
 		last_direction = velocity.normalized()
 	else:
 		if walking_audio.playing:
@@ -85,7 +88,6 @@ func _physics_process(_delta: float) -> void:
 		animated_sprite.play()
 
 func activate_invincibility():
-	print("check")
 	is_invincible = true
 	invincibility_time_left = invincibility_duration
 	invincibility_used_this_level = true

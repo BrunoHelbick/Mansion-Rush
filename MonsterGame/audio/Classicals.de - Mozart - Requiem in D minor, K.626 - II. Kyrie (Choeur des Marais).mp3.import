@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqsxt455sxf2q"
+path="res://.godot/imported/Classicals.de - Mozart - Requiem in D minor, K.626 - II. Kyrie (Choeur des Marais).mp3-3fefff3ad1b009492de1bc2a9b8ea5d7.mp3str"
+
+[deps]
+
+source_file="res://audio/Classicals.de - Mozart - Requiem in D minor, K.626 - II. Kyrie (Choeur des Marais).mp3"
+dest_files=["res://.godot/imported/Classicals.de - Mozart - Requiem in D minor, K.626 - II. Kyrie (Choeur des Marais).mp3-3fefff3ad1b009492de1bc2a9b8ea5d7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

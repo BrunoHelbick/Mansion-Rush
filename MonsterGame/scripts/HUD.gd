@@ -7,7 +7,7 @@ class_name HUD
 func _ready():
 	label.text = "Meatsacks Collected: " + str(GameState.TreasureCount) + "/7"
 
-func _process(delta):
+func _process(_delta):
 	label2.visible = GameState.invincibility_activated
 
 func update_display():
