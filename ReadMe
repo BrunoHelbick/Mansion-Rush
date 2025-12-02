@@ -1,0 +1,32 @@
+# MansionRush
+
+## Description
+Explore haunted locations, collect treasures, and unlock items to delve deeper into the world.
+
+## Creator
+Solo project completed during a 3-day Game Jam. Built on an existing project from a previous 24-hour Game Jam.
+
+## Technologies / Tools
+- **Engine / Language:** Godot 4.5, GDScript  
+- **Sprites:** Pixelorama and assets from Itch.io  
+- **Sound Effects:** Pixabay  
+- **Version Control:** GitHub  
+
+## How to Play / Demo
+1. Download the project ZIP and unzip it.  
+2. Open the project in Godot 4.5 via the `Project.Godot` file.  
+3. Run directly from the menu, or export the project if opened in the editor.
+
+## Features / Highlights
+- Treasure collection system for progression  
+- Multiple haunted locations to explore  
+- Playable demo completed within 3 days  
+
+## Lessons Learned / Challenges
+- Rapid prototyping under tight deadlines  
+- Using version control effectively for solo iteration  
+- Integrating assets from multiple sources  
+
+## Credits / Assets
+- **Sprites:** Pixelorama / Itch.io  
+- **Sound Effects:** Pixabay
